@@ -1,0 +1,27 @@
+# This file configures the analyzer, which statically analyzes Dart code to
+# check for errors, warnings, and lints.
+#
+# The issues identified by the analyzer are surfaced in the UI of Dart-enabled
+# IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
+# invoked from the command line by running `flutter analyze`.
+
+# https://pub.dev/packages/pedantic_mono
+include: package:pedantic_mono/analysis_options.yaml
+
+analyzer:
+  errors:
+    # treat missing required parameters as a warning (not a hint)
+    missing_required_param: error
+    missing_return: error
+  exclude:
+    - "lib/**/*.g.dart"
+    - "lib/**/*.freezed.dart"
+    - "lib/generated/**"
+    - "lib/generated_plugin_registrant.dart" # web で使用する
+
+linter:
+  rules:
+    - require_trailing_commas
+    - lines_longer_than_80_chars
+    - avoid_dynamic_calls
+    - avoid_returning_null_for_future
