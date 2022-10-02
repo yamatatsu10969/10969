@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:phr_app_expo/gen/fonts.gen.dart';
+
+import '../../gen/fonts.gen.dart';
 
 final themeModeProvider = StateProvider<ThemeMode>((ref) {
   return ThemeMode.dark;

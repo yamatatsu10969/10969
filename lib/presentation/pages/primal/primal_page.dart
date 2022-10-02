@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:phr_app_expo/presentation/styles/theme.dart';
-import 'package:phr_app_expo/presentation/widgets/tap_to_unfocus_view.dart';
+
+import '../../styles/theme.dart';
+import '../../widgets/tap_to_unfocus_view.dart';
 
 class PrimalPage extends ConsumerWidget {
   const PrimalPage({Key? key}) : super(key: key);

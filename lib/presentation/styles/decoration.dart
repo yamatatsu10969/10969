@@ -1,6 +1,7 @@
 import 'package:build_context/build_context.dart';
 import 'package:flutter/material.dart';
-import 'package:phr_app_expo/presentation/styles/app_color.dart';
+
+import 'app_color.dart';
 
 InputDecoration textFormFieldDecoration(
   BuildContext context, {

@@ -3,9 +3,9 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:phr_app_expo/common/app_router.dart';
-import 'package:phr_app_expo/generated/l10n.dart';
 
+import 'common/app_router.dart';
+import 'generated/l10n.dart';
 import 'presentation/styles/theme.dart';
 
 Future<void> main() async {

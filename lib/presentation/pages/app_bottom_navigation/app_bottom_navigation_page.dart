@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:phr_app_expo/presentation/pages/primal/primal_page.dart';
-import 'package:phr_app_expo/presentation/pages/search/search_page.dart';
 
 import '../accounts/accounts_page.dart';
+import '../primal/primal_page.dart';
+import '../search/search_page.dart';
 
 /// 現在選択状態になっている下タブの index を管理する StateProvider。
 final bottomTabIndexProvider = StateProvider<int>((_) => 0);

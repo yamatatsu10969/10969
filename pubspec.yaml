@@ -1,4 +1,4 @@
-name: phr_app_expo
+name: app10969
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -82,7 +82,7 @@ flutter:
     - assets/launcher_icons/adaptive/
     - assets/logos/
     - assets/profiles/
-
+    - /Users/tatsuyayamamoto/workspace/10969/assets
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
