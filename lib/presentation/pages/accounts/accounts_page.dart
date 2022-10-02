@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:phr_app_expo/presentation/styles/design_size.dart';
 import 'package:phr_app_expo/presentation/widgets/tap_to_unfocus_view.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class AccountsPage extends HookConsumerWidget {
   const AccountsPage({Key? key}) : super(key: key);
@@ -17,27 +18,81 @@ class AccountsPage extends HookConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               rowItem(
-                const Text('Image'),
-                const Text('ONE OK ROCK'),
-              ),
-              rowItem(
-                IconButton(
-                  icon: const FaIcon(FontAwesomeIcons.instagram),
-                  onPressed: () {},
+                // Image.asset('assets/profiles/taka.jpg'),
+                const AspectRatio(
+                  aspectRatio: 1,
+                  child: Placeholder(),
                 ),
-                const Text('Image'),
+                Wrap(
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  runAlignment: WrapAlignment.center,
+                  children: const [
+                    SNSButton(
+                      sns: SNS.instagram,
+                      urlPath: 'oneokrockofficial/',
+                    ),
+                    SNSButton(
+                      sns: SNS.youtube,
+                      urlPath: 'user/ONEOKROCKchannel/',
+                    ),
+                    SNSButton(
+                      sns: SNS.tiktok,
+                      urlPath: '@oneokrock_official',
+                    ),
+                    SNSButton(
+                      sns: SNS.facebook,
+                      urlPath: 'ONEOKROCK',
+                    ),
+                    SNSButton(
+                      sns: SNS.twitter,
+                      urlPath: 'ONEOKROCK_japan',
+                    ),
+                    SNSButton(
+                      sns: SNS.spotify,
+                      urlPath: '7k73EtZwoPs516ZxE72KsO',
+                    ),
+                    SNSButton(
+                      sns: SNS.web,
+                      urlPath: '',
+                    ),
+                  ],
+                ),
               ),
               rowItem(
-                const Text('Image'),
-                const Text('TORU'),
+                const SNSButton(sns: SNS.instagram, urlPath: '10969taka/'),
+                const AspectRatio(
+                  aspectRatio: 1,
+                  child: Placeholder(),
+                ),
               ),
               rowItem(
-                const Text('RYOTA'),
-                const Text('Image'),
+                const AspectRatio(
+                  aspectRatio: 1,
+                  child: Placeholder(),
+                ),
+                const SNSButton(sns: SNS.instagram, urlPath: 'toru_10969/'),
               ),
               rowItem(
-                const Text('Image'),
-                const Text('TOMOYA'),
+                const SNSButton(sns: SNS.instagram, urlPath: 'ryota_0809/'),
+                const AspectRatio(
+                  aspectRatio: 1,
+                  child: Placeholder(),
+                ),
+              ),
+              rowItem(
+                const AspectRatio(
+                  aspectRatio: 1,
+                  child: Placeholder(),
+                ),
+                Wrap(
+                  children: const [
+                    SNSButton(sns: SNS.instagram, urlPath: 'tomo_10969/'),
+                    SNSButton(
+                      sns: SNS.youtube,
+                      urlPath: 'channel/UCWnAmpRn-ahaCt7kmsPSGRw',
+                    )
+                  ],
+                ),
               )
             ],
           ),
@@ -56,4 +111,83 @@ class AccountsPage extends HookConsumerWidget {
       ],
     );
   }
+
+  Widget instagramButton(String url) {
+    return IconButton(
+      icon: const FaIcon(FontAwesomeIcons.instagram),
+      onPressed: () {
+        launchUrlString(url, mode: LaunchMode.externalApplication);
+      },
+    );
+  }
+}
+
+class SNSButton extends StatelessWidget {
+  const SNSButton({
+    super.key,
+    required this.sns,
+    required this.urlPath,
+  });
+
+  final SNS sns;
+  final String urlPath;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: sns.icon,
+      onPressed: () async {
+        final url = sns.baseUrl + urlPath;
+        if (await canLaunchUrlString(url)) {
+          return;
+        }
+        await launchUrlString(url, mode: LaunchMode.externalApplication);
+      },
+    );
+  }
+}
+
+enum SNS {
+  instagram(
+    baseUrl: 'https://www.instagram.com/',
+    icon: FaIcon(FontAwesomeIcons.instagram),
+  ),
+  youtube(
+    baseUrl: 'https://www.youtube.com/',
+    icon: FaIcon(FontAwesomeIcons.youtube),
+  ),
+  facebook(
+    baseUrl: 'https://www.youtube.com/',
+    icon: FaIcon(FontAwesomeIcons.facebookF),
+  ),
+  tiktok(
+    baseUrl: 'https://www.tiktok.com/',
+    icon: FaIcon(FontAwesomeIcons.tiktok),
+  ),
+  spotify(
+    baseUrl: 'https://play.spotify.com/artist/',
+    icon: FaIcon(FontAwesomeIcons.spotify),
+  ),
+  apple(
+    // TODO(yamatatsu): url 修正
+    baseUrl: 'http://smarturl.it/ONEOKROCK',
+    icon: FaIcon(FontAwesomeIcons.apple),
+  ),
+  twitter(
+    baseUrl: 'https://twitter.com/',
+    icon: FaIcon(FontAwesomeIcons.twitter),
+  ),
+  web(
+    // TODO(yamatatsu): 日本語どうする
+    baseUrl: 'https://www.oneokrock.com/en/',
+    icon: FaIcon(FontAwesomeIcons.ggCircle),
+  );
+
+  const SNS({
+    required this.baseUrl,
+    required this.icon,
+  });
+
+  final String baseUrl;
+  final Widget icon;
 }
