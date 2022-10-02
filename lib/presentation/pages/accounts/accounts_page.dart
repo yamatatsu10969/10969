@@ -48,11 +48,15 @@ class AccountsPage extends HookConsumerWidget {
                       urlPath: 'ONEOKROCK_japan',
                     ),
                     SNSButton(
+                      sns: SNS.web,
+                      urlPath: '',
+                    ),
+                    SNSButton(
                       sns: SNS.spotify,
                       urlPath: '7k73EtZwoPs516ZxE72KsO',
                     ),
                     SNSButton(
-                      sns: SNS.web,
+                      sns: SNS.apple,
                       urlPath: '',
                     ),
                   ],
@@ -139,9 +143,9 @@ class SNSButton extends StatelessWidget {
       onPressed: () async {
         final url = sns.baseUrl + urlPath;
         if (await canLaunchUrlString(url)) {
-          return;
+          await launchUrlString(url, mode: LaunchMode.externalApplication);
         }
-        await launchUrlString(url, mode: LaunchMode.externalApplication);
+        // TODO(yamatatsu): エラー表示
       },
     );
   }
@@ -180,7 +184,8 @@ enum SNS {
   web(
     // TODO(yamatatsu): 日本語どうする
     baseUrl: 'https://www.oneokrock.com/en/',
-    icon: FaIcon(FontAwesomeIcons.ggCircle),
+    // TODO(yamatatsu): 骨のアイコンにしたい
+    icon: FaIcon(FontAwesomeIcons.heartBroken),
   );
 
   const SNS({
