@@ -40,6 +40,8 @@ dependencies:
   freezed_annotation: ^1.0.0
   hooks_riverpod: ^1.0.2
   json_serializable: ^6.1.1
+  shared_preferences: ^2.0.15
+  url_launcher: ^6.1.6
   # sentry_flutter: ^6.2.0
 
   # The following adds the Cupertino Icons font to your application.
