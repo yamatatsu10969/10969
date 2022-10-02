@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+import '../../../gen/assets.gen.dart';
 import '../../styles/design_size.dart';
 import '../../widgets/tap_to_unfocus_view.dart';
 
@@ -12,94 +13,95 @@ class AccountsPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return TapToUnfocusView(
       child: Scaffold(
-        body: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(vertical: DesignSize.m),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              rowItem(
-                // Image.asset('assets/profiles/taka.jpg'),
-                const AspectRatio(
-                  aspectRatio: 1,
-                  child: Placeholder(),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(vertical: DesignSize.m),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                rowItem(
+                  AspectRatio(
+                    aspectRatio: 1,
+                    child: Assets.logos.oneokrockIcon.image(),
+                  ),
+                  Wrap(
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    runAlignment: WrapAlignment.center,
+                    children: const [
+                      SNSButton(
+                        sns: SNS.instagram,
+                        urlPath: 'oneokrockofficial/',
+                      ),
+                      SNSButton(
+                        sns: SNS.youtube,
+                        urlPath: 'user/ONEOKROCKchannel/',
+                      ),
+                      SNSButton(
+                        sns: SNS.tiktok,
+                        urlPath: '@oneokrock_official',
+                      ),
+                      SNSButton(
+                        sns: SNS.facebook,
+                        urlPath: 'ONEOKROCK',
+                      ),
+                      SNSButton(
+                        sns: SNS.twitter,
+                        urlPath: 'ONEOKROCK_japan',
+                      ),
+                      SNSButton(
+                        sns: SNS.web,
+                        urlPath: '',
+                      ),
+                      SNSButton(
+                        sns: SNS.spotify,
+                        urlPath: '7k73EtZwoPs516ZxE72KsO',
+                      ),
+                      SNSButton(
+                        sns: SNS.apple,
+                        urlPath: '',
+                      ),
+                    ],
+                  ),
                 ),
-                Wrap(
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  runAlignment: WrapAlignment.center,
-                  children: const [
-                    SNSButton(
-                      sns: SNS.instagram,
-                      urlPath: 'oneokrockofficial/',
-                    ),
-                    SNSButton(
-                      sns: SNS.youtube,
-                      urlPath: 'user/ONEOKROCKchannel/',
-                    ),
-                    SNSButton(
-                      sns: SNS.tiktok,
-                      urlPath: '@oneokrock_official',
-                    ),
-                    SNSButton(
-                      sns: SNS.facebook,
-                      urlPath: 'ONEOKROCK',
-                    ),
-                    SNSButton(
-                      sns: SNS.twitter,
-                      urlPath: 'ONEOKROCK_japan',
-                    ),
-                    SNSButton(
-                      sns: SNS.web,
-                      urlPath: '',
-                    ),
-                    SNSButton(
-                      sns: SNS.spotify,
-                      urlPath: '7k73EtZwoPs516ZxE72KsO',
-                    ),
-                    SNSButton(
-                      sns: SNS.apple,
-                      urlPath: '',
-                    ),
-                  ],
+                rowItem(
+                  const SNSButton(sns: SNS.instagram, urlPath: '10969taka/'),
+                  AspectRatio(
+                    aspectRatio: 1,
+                    child: Assets.profiles.taka.image(),
+                  ),
                 ),
-              ),
-              rowItem(
-                const SNSButton(sns: SNS.instagram, urlPath: '10969taka/'),
-                const AspectRatio(
-                  aspectRatio: 1,
-                  child: Placeholder(),
+                rowItem(
+                  AspectRatio(
+                    aspectRatio: 1,
+                    child: Assets.profiles.toru.image(),
+                  ),
+                  const SNSButton(sns: SNS.instagram, urlPath: 'toru_10969/'),
                 ),
-              ),
-              rowItem(
-                const AspectRatio(
-                  aspectRatio: 1,
-                  child: Placeholder(),
+                rowItem(
+                  const SNSButton(sns: SNS.instagram, urlPath: 'ryota_0809/'),
+                  AspectRatio(
+                    aspectRatio: 1,
+                    child: Assets.profiles.ryota.image(),
+                  ),
                 ),
-                const SNSButton(sns: SNS.instagram, urlPath: 'toru_10969/'),
-              ),
-              rowItem(
-                const SNSButton(sns: SNS.instagram, urlPath: 'ryota_0809/'),
-                const AspectRatio(
-                  aspectRatio: 1,
-                  child: Placeholder(),
-                ),
-              ),
-              rowItem(
-                const AspectRatio(
-                  aspectRatio: 1,
-                  child: Placeholder(),
-                ),
-                Wrap(
-                  children: const [
-                    SNSButton(sns: SNS.instagram, urlPath: 'tomo_10969/'),
-                    SNSButton(
-                      sns: SNS.youtube,
-                      urlPath: 'channel/UCWnAmpRn-ahaCt7kmsPSGRw',
-                    )
-                  ],
-                ),
-              )
-            ],
+                rowItem(
+                  AspectRatio(
+                    aspectRatio: 1,
+                    child: Assets.profiles.tomoya.image(),
+                  ),
+                  Wrap(
+                    children: const [
+                      SNSButton(sns: SNS.instagram, urlPath: 'tomo_10969/'),
+                      SNSButton(
+                        sns: SNS.youtube,
+                        urlPath: 'channel/UCWnAmpRn-ahaCt7kmsPSGRw',
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
