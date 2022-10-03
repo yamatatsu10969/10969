@@ -198,4 +198,28 @@ enum SNS {
 
   final String baseUrl;
   final Widget icon;
+  String searchUrl(String query) {
+    final encodedQuery = Uri.encodeQueryComponent(query);
+    switch (this) {
+      case SNS.twitter:
+        // https://twitter.com/search?q=one%20ok%20rock&src=typed_query&f=top
+        return '${baseUrl}search?q=$encodedQuery&src=typed_query&f=top';
+      case SNS.instagram:
+        // https: //www.instagram.com/explore/tags/oneokrock/
+        return '${baseUrl}explore/tags/$encodedQuery';
+
+      case SNS.youtube:
+        // https: //www.youtube.com/results?search_query=hello
+        return '${baseUrl}results?search_query=$encodedQuery';
+
+      case SNS.tiktok:
+        // https: //www.tiktok.com/tag/oneokrock
+        return '${baseUrl}tag/$encodedQuery';
+      case SNS.spotify:
+      case SNS.facebook:
+      case SNS.apple:
+      case SNS.web:
+    }
+    throw UnimplementedError();
+  }
 }
