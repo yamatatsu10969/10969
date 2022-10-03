@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:phr_app_expo/presentation/widgets/tap_to_unfocus_view.dart';
+
+import '../../widgets/tap_to_unfocus_view.dart';
 
 class SettingsPage extends HookConsumerWidget {
   const SettingsPage({Key? key}) : super(key: key);

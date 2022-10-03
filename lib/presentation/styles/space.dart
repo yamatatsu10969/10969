@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:phr_app_expo/presentation/styles/design_size.dart';
+
+import 'design_size.dart';
 
 class Space {
   static const Widget ssW = SizedBox(width: DesignSize.ss);

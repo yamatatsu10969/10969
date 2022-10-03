@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:phr_app_expo/common/exports.dart';
-import 'package:phr_app_expo/presentation/pages/primal/primal_page.dart';
-import 'package:phr_app_expo/presentation/widgets/tap_to_unfocus_view.dart';
+
+import '../../../common/exports.dart';
+import '../../widgets/tap_to_unfocus_view.dart';
+import '../primal/primal_page.dart';
 
 class DevelopPage extends StatelessWidget {
   DevelopPage({Key? key}) : super(key: key);

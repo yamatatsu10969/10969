@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:phr_app_expo/presentation/pages/_develop/develop_page.dart';
-import 'package:phr_app_expo/presentation/pages/app_bottom_navigation/app_bottom_navigation_page.dart';
-import 'package:phr_app_expo/presentation/pages/primal/primal_page.dart';
-import 'package:phr_app_expo/presentation/pages/settings/settings_page.dart';
-import 'package:phr_app_expo/presentation/pages/splash/splash_page.dart';
+
+import '../presentation/pages/_develop/develop_page.dart';
+import '../presentation/pages/app_bottom_navigation/app_bottom_navigation_page.dart';
+import '../presentation/pages/primal/primal_page.dart';
+import '../presentation/pages/settings/settings_page.dart';
+import '../presentation/pages/splash/splash_page.dart';
 
 // ignore: avoid_classes_with_only_static_members
 class AppRouter {
