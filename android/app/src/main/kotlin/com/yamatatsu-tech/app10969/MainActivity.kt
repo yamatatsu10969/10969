@@ -1,4 +1,4 @@
-package com.yamatatsu.app10969
+package com.yamatatsu-tech.app10969
 
 import io.flutter.embedding.android.FlutterActivity
 
