@@ -63,7 +63,7 @@ dev_dependencies:
 
 flutter_intl:
   enabled: true
-  main_locale: ja_JP
+  main_locale: en
   class_name: L10n
 
 flutter_icons:

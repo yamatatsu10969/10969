@@ -74,7 +74,7 @@ class SettingsPage extends ConsumerWidget {
                       showAboutDialog(
                         context: context,
                         applicationName: packageInfo.appName,
-                        applicationVersion: 'アプリバージョン: ${packageInfo.version}',
+                        applicationVersion: 'Version: ${packageInfo.version}',
                         applicationIcon: Padding(
                           padding: const EdgeInsets.all(8),
                           child: ClipRRect(

@@ -50,31 +50,11 @@ class L10n {
     return Localizations.of<L10n>(context, L10n);
   }
 
-  /// `調べる`
-  String get search {
+  /// `hello`
+  String get hello {
     return Intl.message(
-      '調べる',
-      name: 'search',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `マイページ`
-  String get myPage {
-    return Intl.message(
-      'マイページ',
-      name: 'myPage',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `設定`
-  String get settings {
-    return Intl.message(
-      '設定',
-      name: 'settings',
+      'hello',
+      name: 'hello',
       desc: '',
       args: [],
     );
@@ -86,8 +66,8 @@ class AppLocalizationDelegate extends LocalizationsDelegate<L10n> {
 
   List<Locale> get supportedLocales {
     return const <Locale>[
-      Locale.fromSubtags(languageCode: 'ja', countryCode: 'JP'),
       Locale.fromSubtags(languageCode: 'en'),
+      // Locale.fromSubtags(languageCode: 'ja', countryCode: 'JP'),
     ];
   }
 
