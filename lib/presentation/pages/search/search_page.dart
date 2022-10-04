@@ -110,27 +110,27 @@ class SearchHistorySection extends ConsumerWidget {
                 return Column(
                   children: data
                       .map(
-                        (e) => Row(
-                          children: [
-                            TextButton(
-                              onPressed: () {
-                                textController.text = e.query;
-                              },
-                              child: Text(e.query),
+                        (e) => ListTile(
+                          enableFeedback: true,
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(30)),
+                          ),
+                          title: Text(
+                            e.query,
+                            style: const TextStyle(color: Colors.blue),
+                          ),
+                          onTap: () => textController.text = e.query,
+                          trailing: IconButton(
+                            onPressed: () {
+                              ref
+                                  .read(searchControllerProvider.notifier)
+                                  .deleteSearchHistory(e);
+                            },
+                            icon: const Icon(
+                              Icons.cancel_outlined,
+                              size: 16,
                             ),
-                            const Spacer(),
-                            IconButton(
-                              onPressed: () {
-                                ref
-                                    .read(searchControllerProvider.notifier)
-                                    .deleteSearchHistory(e);
-                              },
-                              icon: const Icon(
-                                Icons.cancel_outlined,
-                                size: 16,
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
                       )
                       .toList()
