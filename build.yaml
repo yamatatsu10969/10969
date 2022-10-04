@@ -14,5 +14,4 @@ targets:
             - lib/data/entities/*.dart
         options:
           checked: true
-          field_rename: snake # デフォルトから変更
           explicit_to_json: true # ネストしたモデルを toJson できるようにする https://github.com/rrousselGit/freezed/issues/86#issuecomment-593936459

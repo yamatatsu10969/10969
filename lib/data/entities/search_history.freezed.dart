@@ -21,9 +21,9 @@ SearchHistory _$SearchHistoryFromJson(Map<String, dynamic> json) {
 class _$SearchHistoryTearOff {
   const _$SearchHistoryTearOff();
 
-  _SearchHistory call({required String keyword, required DateTime createdAt}) {
+  _SearchHistory call({required String query, required DateTime createdAt}) {
     return _SearchHistory(
-      keyword: keyword,
+      query: query,
       createdAt: createdAt,
     );
   }
@@ -38,7 +38,7 @@ const $SearchHistory = _$SearchHistoryTearOff();
 
 /// @nodoc
 mixin _$SearchHistory {
-  String get keyword => throw _privateConstructorUsedError;
+  String get query => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -52,7 +52,7 @@ abstract class $SearchHistoryCopyWith<$Res> {
   factory $SearchHistoryCopyWith(
           SearchHistory value, $Res Function(SearchHistory) then) =
       _$SearchHistoryCopyWithImpl<$Res>;
-  $Res call({String keyword, DateTime createdAt});
+  $Res call({String query, DateTime createdAt});
 }
 
 /// @nodoc
@@ -66,13 +66,13 @@ class _$SearchHistoryCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? keyword = freezed,
+    Object? query = freezed,
     Object? createdAt = freezed,
   }) {
     return _then(_value.copyWith(
-      keyword: keyword == freezed
-          ? _value.keyword
-          : keyword // ignore: cast_nullable_to_non_nullable
+      query: query == freezed
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
               as String,
       createdAt: createdAt == freezed
           ? _value.createdAt
@@ -89,7 +89,7 @@ abstract class _$SearchHistoryCopyWith<$Res>
           _SearchHistory value, $Res Function(_SearchHistory) then) =
       __$SearchHistoryCopyWithImpl<$Res>;
   @override
-  $Res call({String keyword, DateTime createdAt});
+  $Res call({String query, DateTime createdAt});
 }
 
 /// @nodoc
@@ -105,13 +105,13 @@ class __$SearchHistoryCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? keyword = freezed,
+    Object? query = freezed,
     Object? createdAt = freezed,
   }) {
     return _then(_SearchHistory(
-      keyword: keyword == freezed
-          ? _value.keyword
-          : keyword // ignore: cast_nullable_to_non_nullable
+      query: query == freezed
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
               as String,
       createdAt: createdAt == freezed
           ? _value.createdAt
@@ -124,19 +124,19 @@ class __$SearchHistoryCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SearchHistory implements _SearchHistory {
-  const _$_SearchHistory({required this.keyword, required this.createdAt});
+  const _$_SearchHistory({required this.query, required this.createdAt});
 
   factory _$_SearchHistory.fromJson(Map<String, dynamic> json) =>
       _$$_SearchHistoryFromJson(json);
 
   @override
-  final String keyword;
+  final String query;
   @override
   final DateTime createdAt;
 
   @override
   String toString() {
-    return 'SearchHistory(keyword: $keyword, createdAt: $createdAt)';
+    return 'SearchHistory(query: $query, createdAt: $createdAt)';
   }
 
   @override
@@ -144,14 +144,14 @@ class _$_SearchHistory implements _SearchHistory {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SearchHistory &&
-            const DeepCollectionEquality().equals(other.keyword, keyword) &&
+            const DeepCollectionEquality().equals(other.query, query) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(keyword),
+      const DeepCollectionEquality().hash(query),
       const DeepCollectionEquality().hash(createdAt));
 
   @JsonKey(ignore: true)
@@ -167,14 +167,13 @@ class _$_SearchHistory implements _SearchHistory {
 
 abstract class _SearchHistory implements SearchHistory {
   const factory _SearchHistory(
-      {required String keyword,
-      required DateTime createdAt}) = _$_SearchHistory;
+      {required String query, required DateTime createdAt}) = _$_SearchHistory;
 
   factory _SearchHistory.fromJson(Map<String, dynamic> json) =
       _$_SearchHistory.fromJson;
 
   @override
-  String get keyword;
+  String get query;
   @override
   DateTime get createdAt;
   @override

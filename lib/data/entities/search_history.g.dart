@@ -12,17 +12,16 @@ _$_SearchHistory _$$_SearchHistoryFromJson(Map<String, dynamic> json) =>
       json,
       ($checkedConvert) {
         final val = _$_SearchHistory(
-          keyword: $checkedConvert('keyword', (v) => v as String),
+          query: $checkedConvert('query', (v) => v as String),
           createdAt:
-              $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
         );
         return val;
       },
-      fieldKeyMap: const {'createdAt': 'created_at'},
     );
 
 Map<String, dynamic> _$$_SearchHistoryToJson(_$_SearchHistory instance) =>
     <String, dynamic>{
-      'keyword': instance.keyword,
-      'created_at': instance.createdAt.toIso8601String(),
+      'query': instance.query,
+      'createdAt': instance.createdAt.toIso8601String(),
     };

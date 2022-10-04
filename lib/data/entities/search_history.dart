@@ -6,7 +6,7 @@ part 'search_history.g.dart';
 @freezed
 class SearchHistory with _$SearchHistory {
   const factory SearchHistory({
-    required String keyword,
+    required String query,
     required DateTime createdAt,
   }) = _SearchHistory;
 
