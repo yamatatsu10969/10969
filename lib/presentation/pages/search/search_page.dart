@@ -28,7 +28,7 @@ class SearchPage extends HookConsumerWidget {
             horizontal: DesignSize.m,
           ),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextField(
@@ -72,22 +72,80 @@ class SearchPage extends HookConsumerWidget {
                   ),
                 ],
               ),
-              const Text('Search History'),
-              ref.watch(searchHistoriesProvider).when(
-                    data: (data) => Column(
-                      children: data.map((e) => Text(e.query)).toList(),
-                    ),
-                    error: (error, stackTrace) => Text(
-                      'Error please send screenshot'
-                      'to @yamatatsu109_ja on Twitter.'
-                      '\n$error \n$stackTrace',
-                    ),
-                    loading: () => const CupertinoActivityIndicator(),
-                  ),
+              const SizedBox(
+                height: 16,
+              ),
+              SearchHistorySection(
+                textController: textController,
+              )
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class SearchHistorySection extends ConsumerWidget {
+  const SearchHistorySection({Key? key, required this.textController})
+      : super(key: key);
+
+  final TextEditingController textController;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Column(
+      children: [
+        const Center(
+          child: Text('Search History', style: TextStyle(fontSize: 20)),
+        ),
+        ref.watch(searchHistoriesProvider).when(
+              data: (data) {
+                if (data.isEmpty) {
+                  return const Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Text('No history'),
+                  );
+                }
+                return Column(
+                  children: data
+                      .map(
+                        (e) => Row(
+                          children: [
+                            TextButton(
+                              onPressed: () {
+                                textController.text = e.query;
+                              },
+                              child: Text(e.query),
+                            ),
+                            const Spacer(),
+                            IconButton(
+                              onPressed: () {
+                                ref
+                                    .read(searchControllerProvider.notifier)
+                                    .deleteSearchHistory(e);
+                              },
+                              icon: const Icon(
+                                Icons.cancel_outlined,
+                                size: 16,
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                      .toList()
+                      .getRange(0, data.length > 10 ? 10 : data.length)
+                      .toList(),
+                );
+              },
+              error: (error, stackTrace) => Text(
+                'Error please send screenshot'
+                'to @yamatatsu109_ja on Twitter.'
+                '\n$error \n$stackTrace',
+              ),
+              loading: () => const CupertinoActivityIndicator(),
+            ),
+      ],
     );
   }
 }

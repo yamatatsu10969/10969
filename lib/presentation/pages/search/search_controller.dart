@@ -11,15 +11,17 @@ class SearchController extends StateNotifier<AsyncValue<void>> {
 
   Future<void> addSearchHistory(String query) async {
     state = const AsyncValue.loading();
-    // final searchHistories = await searchHistoryRepository.fetchSearchHistory();
-    // final newSearchHistories = [
-    //   ...searchHistories,
-    //   SearchHistory(query: query, createdAt: DateTime.now()),
-    // ];
     state = await AsyncValue.guard(
       () => searchHistoryRepository.setSearchHistory(
         SearchHistory(query: query, createdAt: DateTime.now()),
       ),
+    );
+  }
+
+  Future<void> deleteSearchHistory(SearchHistory searchHistory) async {
+    state = const AsyncValue.loading();
+    state = await AsyncValue.guard(
+      () => searchHistoryRepository.deleteSearchHistory(searchHistory),
     );
   }
 }

@@ -42,10 +42,21 @@ class SembastSearchHistoryRepository implements SearchHistoryRepository {
 
   @override
   Future<void> setSearchHistory(SearchHistory searchHistory) {
-    return store.add(
-      db,
-      searchHistory.toJson(),
+    final finder = Finder(
+      filter: Filter.equals('query', searchHistory.query),
     );
+    return store
+        .find(db, finder: finder)
+        .then(
+          (snapshots) => snapshots.isEmpty
+              ? store.add(db, searchHistory.toJson())
+              : store.update(
+                  db,
+                  searchHistory.toJson(),
+                  finder: finder,
+                ),
+        )
+        .then((_) => null);
   }
 
   @override
@@ -60,5 +71,15 @@ class SembastSearchHistoryRepository implements SearchHistoryRepository {
         )
         .onSnapshots(db)
         .transform(searchHistoriesTransformer);
+  }
+
+  @override
+  Future<void> deleteSearchHistory(SearchHistory searchHistory) {
+    return store.delete(
+      db,
+      finder: Finder(
+        filter: Filter.equals('query', searchHistory.query),
+      ),
+    );
   }
 }

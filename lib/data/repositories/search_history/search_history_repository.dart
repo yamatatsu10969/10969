@@ -5,6 +5,7 @@ import '../../entities/search_history.dart';
 abstract class SearchHistoryRepository {
   Future<List<SearchHistory>> fetchSearchHistory();
   Stream<List<SearchHistory>> watchSearchHistory();
+  Future<void> deleteSearchHistory(SearchHistory searchHistory);
   Future<void> setSearchHistory(SearchHistory searchHistory);
 }
 
