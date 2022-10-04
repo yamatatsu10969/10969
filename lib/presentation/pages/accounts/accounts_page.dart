@@ -207,7 +207,10 @@ enum SNS {
         return '${baseUrl}search?q=$encodedQuery&src=typed_query&f=top';
       case SNS.instagram:
         // https: //www.instagram.com/explore/tags/oneokrock/
-        return '${baseUrl}explore/tags/$encodedQuery';
+        // NOTE: white space is not allowed
+        final whiteSpaceRemovedQuery =
+            query.replaceAll(' ', '').replaceAll('　', '');
+        return '${baseUrl}explore/tags/$whiteSpaceRemovedQuery';
 
       case SNS.youtube:
         // https: //www.youtube.com/results?search_query=hello
