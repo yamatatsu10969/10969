@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../accounts/accounts_page.dart';
-import '../primal/primal_page.dart';
 import '../search/search_page.dart';
 
 /// 現在選択状態になっている下タブの index を管理する StateProvider。
@@ -23,12 +22,12 @@ enum BottomTabEnum {
     page: SearchPage(),
     icon: Icon(Icons.search_rounded),
   ),
-  primal(
-    label: 'Primal',
-    location: 'primal',
-    page: PrimalPage(),
-    icon: Icon(Icons.star_border),
-  ),
+  // primal(
+  //   label: 'Primal',
+  //   location: 'primal',
+  //   page: PrimalPage(),
+  //   icon: Icon(Icons.star_border),
+  // ),
   settings(
     label: 'Settings',
     location: 'settings',
@@ -60,22 +59,6 @@ class BottomTab {
   final GlobalKey<NavigatorState> key;
   final BottomTabEnum bottomTabEnum;
 }
-
-/// MainPage に表示する BottomNavigationBarItem 一覧。
-final bottomTabs = <BottomTab>[
-  BottomTab._(
-    key: GlobalKey<NavigatorState>(),
-    bottomTabEnum: BottomTabEnum.accounts,
-  ),
-  BottomTab._(
-    key: GlobalKey<NavigatorState>(),
-    bottomTabEnum: BottomTabEnum.search,
-  ),
-  BottomTab._(
-    key: GlobalKey<NavigatorState>(),
-    bottomTabEnum: BottomTabEnum.primal,
-  ),
-];
 
 class AppBottomNavigationPage extends HookConsumerWidget {
   const AppBottomNavigationPage({Key? key}) : super(key: key);
