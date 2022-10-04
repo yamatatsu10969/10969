@@ -6,6 +6,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../../gen/assets.gen.dart';
 import '../../widgets/tap_to_unfocus_view.dart';
+import '../accounts/accounts_page.dart';
 
 class SettingsPage extends ConsumerWidget {
   const SettingsPage({super.key});
@@ -51,10 +52,30 @@ class SettingsPage extends ConsumerWidget {
                       builder: (dialogContext) => AlertDialog(
                         title: const Text('Author'),
                         content: Column(
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             const Text('yamatatsu'),
                             Wrap(
-                              children: const [],
+                              children: [
+                                IconButton(
+                                  onPressed: () => launchUrlString(
+                                    'https://twitter.com/yamatatsu109_ja',
+                                  ),
+                                  icon: SNS.twitter.icon,
+                                ),
+                                IconButton(
+                                  onPressed: () => launchUrlString(
+                                    'https://www.instagram.com/yamatatsu10969/',
+                                  ),
+                                  icon: SNS.instagram.icon,
+                                ),
+                                IconButton(
+                                  onPressed: () => launchUrlString(
+                                    'https://github.com/yamatatsu10969',
+                                  ),
+                                  icon: SNS.github.icon,
+                                )
+                              ],
                             ),
                           ],
                         ),

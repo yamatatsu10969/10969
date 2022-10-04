@@ -184,6 +184,10 @@ enum SNS {
     baseUrl: 'https://twitter.com/',
     icon: FaIcon(FontAwesomeIcons.twitter),
   ),
+  github(
+    baseUrl: 'https://github.com/',
+    icon: FaIcon(FontAwesomeIcons.github),
+  ),
   web(
     // TODO(yamatatsu): 日本語どうする
     baseUrl: 'https://www.oneokrock.com/en/',
