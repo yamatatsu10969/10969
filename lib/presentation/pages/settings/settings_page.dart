@@ -46,11 +46,11 @@ class SettingsPage extends ConsumerWidget {
                     ),
                   ),
                   SettingsTile.navigation(
-                    title: const Text('Author'),
+                    title: const Text('Created by'),
                     onPressed: (_) => showDialog<void>(
                       context: context,
                       builder: (dialogContext) => AlertDialog(
-                        title: const Text('Author'),
+                        title: const Text('Created by'),
                         content: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
