@@ -176,7 +176,6 @@ enum SNS {
     icon: FaIcon(FontAwesomeIcons.spotify),
   ),
   apple(
-    // TODO(yamatatsu): url 修正
     baseUrl: 'http://smarturl.it/ONEOKROCK',
     icon: FaIcon(FontAwesomeIcons.apple),
   ),
@@ -189,10 +188,8 @@ enum SNS {
     icon: FaIcon(FontAwesomeIcons.github),
   ),
   web(
-    // TODO(yamatatsu): 日本語どうする
     baseUrl: 'https://www.oneokrock.com/en/',
-    // TODO(yamatatsu): 骨のアイコンにしたい
-    icon: FaIcon(FontAwesomeIcons.heartBroken),
+    icon: FaIcon(FontAwesomeIcons.home),
   );
 
   const SNS({
@@ -223,6 +220,8 @@ enum SNS {
       case SNS.facebook:
       case SNS.apple:
       case SNS.web:
+      case SNS.github:
+        break;
     }
     throw UnimplementedError();
   }
