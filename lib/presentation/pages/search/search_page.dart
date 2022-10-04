@@ -16,25 +16,27 @@ class SearchPage extends HookConsumerWidget {
     final textController = useTextEditingController();
 
     return TapToUnfocusView(
-      child: Scaffold(
-        body: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(
-            vertical: DesignSize.m,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SearchBarSection(
-                textController: textController,
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              SearchHistorySection(
-                textController: textController,
-              )
-            ],
+      child: SafeArea(
+        child: Scaffold(
+          body: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(
+              vertical: DesignSize.m,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SearchBarSection(
+                  textController: textController,
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                SearchHistorySection(
+                  textController: textController,
+                )
+              ],
+            ),
           ),
         ),
       ),
