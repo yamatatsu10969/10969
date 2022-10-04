@@ -1,3 +1,4 @@
+import 'package:app10969/presentation/pages/settings/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -27,7 +28,14 @@ enum BottomTabEnum {
     location: 'primal',
     page: PrimalPage(),
     icon: Icon(Icons.star_border),
-  );
+  ),
+  settings(
+    label: 'Settings',
+    location: 'settings',
+    page: SettingsPage(),
+    icon: Icon(Icons.settings_rounded),
+  ),
+  ;
 
   const BottomTabEnum({
     required this.label,
