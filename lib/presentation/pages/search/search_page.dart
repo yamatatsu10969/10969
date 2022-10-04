@@ -14,63 +14,19 @@ class SearchPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final textController = useTextEditingController();
-    final showClearButton = useState(false);
-    final query = useState('');
-    textController.addListener(() {
-      showClearButton.value = textController.text.isNotEmpty;
-      query.value = textController.text;
-    });
+
     return TapToUnfocusView(
       child: Scaffold(
         body: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(
             vertical: DesignSize.m,
-            horizontal: DesignSize.m,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextField(
-                controller: textController,
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
-                  hintText: 'luxury disease',
-                  suffixIcon: showClearButton.value
-                      ? IconButton(
-                          onPressed: textController.clear,
-                          icon: const Icon(
-                            Icons.cancel_outlined,
-                            size: 20,
-                          ),
-                        )
-                      : null,
-                ),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SNSSearchButton(
-                    sns: SNS.twitter,
-                    query: query.value,
-                  ),
-                  SNSSearchButton(
-                    sns: SNS.instagram,
-                    query: query.value,
-                  ),
-                  SNSSearchButton(
-                    sns: SNS.tiktok,
-                    query: query.value,
-                  ),
-                  SNSSearchButton(
-                    sns: SNS.youtube,
-                    query: query.value,
-                  ),
-                ],
+              SearchBarSection(
+                textController: textController,
               ),
               const SizedBox(
                 height: 16,
@@ -82,6 +38,70 @@ class SearchPage extends HookConsumerWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class SearchBarSection extends HookConsumerWidget {
+  const SearchBarSection({
+    Key? key,
+    required this.textController,
+  }) : super(key: key);
+
+  final TextEditingController textController;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final showClearButton = useState(false);
+    final query = useState('');
+    textController.addListener(() {
+      showClearButton.value = textController.text.isNotEmpty;
+      query.value = textController.text;
+    });
+    return Column(
+      children: [
+        TextField(
+          controller: textController,
+          decoration: InputDecoration(
+            border: const OutlineInputBorder(),
+            hintText: 'luxury disease',
+            suffixIcon: showClearButton.value
+                ? IconButton(
+                    onPressed: textController.clear,
+                    icon: const Icon(
+                      Icons.cancel_outlined,
+                      size: 20,
+                    ),
+                  )
+                : null,
+          ),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SNSSearchButton(
+              sns: SNS.twitter,
+              query: query.value,
+            ),
+            SNSSearchButton(
+              sns: SNS.instagram,
+              query: query.value,
+            ),
+            SNSSearchButton(
+              sns: SNS.tiktok,
+              query: query.value,
+            ),
+            SNSSearchButton(
+              sns: SNS.youtube,
+              query: query.value,
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
