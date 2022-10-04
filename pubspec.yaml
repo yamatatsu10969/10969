@@ -43,6 +43,7 @@ dependencies:
   json_serializable: ^6.1.1
   path_provider: ^2.0.11
   sembast: ^3.3.0
+  settings_ui: ^2.0.2
   url_launcher: ^6.1.6
   # sentry_flutter: ^6.2.0
 
