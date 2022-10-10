@@ -1,12 +1,16 @@
 import 'dart:developer';
 
+import 'package:app10969/data/repositories/search_history/sembast_search_history_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import 'common/app_router.dart';
+import 'data/repositories/search_history/search_history_repository.dart';
 import 'generated/l10n.dart';
+import 'presentation/pages/settings/settings_page.dart';
 import 'presentation/styles/theme.dart';
 
 Future<void> main() async {
@@ -16,18 +20,22 @@ Future<void> main() async {
   const flavor = String.fromEnvironment('FLAVOR');
   log('🚀 $flavor でビルド中');
 
-  runApp(
-    const ProviderScope(child: MyApp()),
+  final searchHistoryRepository =
+      await SembastSearchHistoryRepository.makeDefault();
+  final packageInfo = await PackageInfo.fromPlatform();
+  final container = ProviderContainer(
+    overrides: [
+      searchHistoryRepositoryProvider
+          .overrideWithValue(searchHistoryRepository),
+      packageInfoProvider.overrideWithValue(packageInfo),
+    ],
   );
-
-  // await SentryFlutter.init(
-  //   (options) {
-  //     options.dsn = envConfig.sentryDns;
-  //   },
-  //   appRunner: () => runApp(
-  //     const ProviderScope(child: MyApp()),
-  //   ),
-  // );
+  runApp(
+    UncontrolledProviderScope(
+      container: container,
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends ConsumerWidget {

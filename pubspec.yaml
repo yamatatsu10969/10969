@@ -34,13 +34,17 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_hooks: ^0.18.1
+  flutter_inappwebview: ^5.4.4+2
   flutter_localizations:
     sdk: flutter
   font_awesome_flutter: ^9.2.0
   freezed_annotation: ^1.0.0
   hooks_riverpod: ^1.0.2
   json_serializable: ^6.1.1
-  shared_preferences: ^2.0.15
+  package_info_plus: ^1.4.3+1
+  path_provider: ^2.0.11
+  sembast: ^3.3.0
+  settings_ui: ^2.0.2
   url_launcher: ^6.1.6
   # sentry_flutter: ^6.2.0
 
@@ -59,7 +63,7 @@ dev_dependencies:
 
 flutter_intl:
   enabled: true
-  main_locale: ja_JP
+  main_locale: en
   class_name: L10n
 
 flutter_icons:

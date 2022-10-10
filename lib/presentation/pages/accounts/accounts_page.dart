@@ -176,7 +176,6 @@ enum SNS {
     icon: FaIcon(FontAwesomeIcons.spotify),
   ),
   apple(
-    // TODO(yamatatsu): url 修正
     baseUrl: 'http://smarturl.it/ONEOKROCK',
     icon: FaIcon(FontAwesomeIcons.apple),
   ),
@@ -184,11 +183,13 @@ enum SNS {
     baseUrl: 'https://twitter.com/',
     icon: FaIcon(FontAwesomeIcons.twitter),
   ),
+  github(
+    baseUrl: 'https://github.com/',
+    icon: FaIcon(FontAwesomeIcons.github),
+  ),
   web(
-    // TODO(yamatatsu): 日本語どうする
     baseUrl: 'https://www.oneokrock.com/en/',
-    // TODO(yamatatsu): 骨のアイコンにしたい
-    icon: FaIcon(FontAwesomeIcons.heartBroken),
+    icon: FaIcon(FontAwesomeIcons.home),
   );
 
   const SNS({
@@ -198,4 +199,33 @@ enum SNS {
 
   final String baseUrl;
   final Widget icon;
+  String searchUrl(String query) {
+    final encodedQuery = Uri.encodeQueryComponent(query);
+    switch (this) {
+      case SNS.twitter:
+        // https://twitter.com/search?q=one%20ok%20rock&src=typed_query&f=top
+        return '${baseUrl}search?q=$encodedQuery&src=typed_query&f=top';
+      case SNS.instagram:
+        // https: //www.instagram.com/explore/tags/oneokrock/
+        // NOTE: white space is not allowed
+        final whiteSpaceRemovedQuery =
+            query.replaceAll(' ', '').replaceAll('　', '');
+        return '${baseUrl}explore/tags/$whiteSpaceRemovedQuery';
+
+      case SNS.youtube:
+        // https: //www.youtube.com/results?search_query=hello
+        return '${baseUrl}results?search_query=$encodedQuery';
+
+      case SNS.tiktok:
+        // https: //www.tiktok.com/tag/oneokrock
+        return '${baseUrl}tag/$encodedQuery';
+      case SNS.spotify:
+      case SNS.facebook:
+      case SNS.apple:
+      case SNS.web:
+      case SNS.github:
+        break;
+    }
+    throw UnimplementedError();
+  }
 }
