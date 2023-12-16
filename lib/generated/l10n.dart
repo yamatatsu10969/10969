@@ -67,7 +67,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<L10n> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
-      // Locale.fromSubtags(languageCode: 'ja', countryCode: 'JP'),
+      Locale.fromSubtags(languageCode: 'ja', countryCode: 'JP'),
     ];
   }
 
