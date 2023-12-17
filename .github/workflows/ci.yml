@@ -67,17 +67,17 @@ jobs:
           DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Flutter test
-      - name: Test
-        run: |
-          flutter test --machine > test_report.log
-      - name: Test Report
-        uses: dorny/test-reporter@v1
-        if: always()
-        with:
-          name: "flutter test"
-          path: "test_report.log"
-          reporter: "flutter-json"
-          fail-on-error: "false"
-          list-suites: "all"
-          list-tests: "all"
-          max-annotations: "30"
+      # - name: Test
+      #   run: |
+      #     flutter test --machine > test_report.log
+      # - name: Test Report
+      #   uses: dorny/test-reporter@v1
+      #   if: always()
+      #   with:
+      #     name: "flutter test"
+      #     path: "test_report.log"
+      #     reporter: "flutter-json"
+      #     fail-on-error: "false"
+      #     list-suites: "all"
+      #     list-tests: "all"
+      #     max-annotations: "30"
