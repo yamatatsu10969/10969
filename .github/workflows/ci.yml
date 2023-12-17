@@ -47,10 +47,10 @@ jobs:
         run: flutter analyze --no-fatal-infos > flutter_analyze_report.txt # info レベルで落ちないようにする
       - name: Format Analyze
         run: flutter format --dry-run --set-exit-if-changed .
-      - name: setup ruby
+      - name: Setup ruby
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: "2.6"
+          ruby-version: "3.1.2"
 
       - name: Setup danger
         run: |
