@@ -48,7 +48,7 @@ jobs:
       - name: Format Analyze
         run: flutter format --dry-run --set-exit-if-changed .
       - name: Setup ruby
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.1.2"
 
