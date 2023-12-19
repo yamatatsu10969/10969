@@ -1,3 +1,4 @@
+import 'package:app10969/env/env_config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -162,7 +163,7 @@ class SearchHistorySection extends ConsumerWidget {
               },
               error: (error, stackTrace) => Text(
                 'Error please send screenshot'
-                'to @yamatatsu109_ja on Twitter.'
+                'to ${ref.watch(envProvider).contactTwitterAccount} on Twitter.'
                 '\n$error \n$stackTrace',
               ),
               loading: () => const CupertinoActivityIndicator(),
