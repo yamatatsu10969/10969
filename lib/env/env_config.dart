@@ -1,3 +1,10 @@
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+final envProvider = Provider.autoDispose<EnvConfig>((ref) {
+  const flavor = String.fromEnvironment('FLAVOR');
+  return EnvConfig(flavor);
+});
+
 abstract class EnvConfig {
   factory EnvConfig(String flavor) {
     if (flavor == 'prod') {
@@ -17,6 +24,7 @@ abstract class EnvConfig {
   String get termsOfUseUrl;
   String get contactUrl;
   String get sentryDns;
+  String get contactTwitterAccount;
 }
 
 class EnvConfigSTG implements EnvConfig {
@@ -37,6 +45,8 @@ class EnvConfigSTG implements EnvConfig {
   String get storeUrl => throw UnimplementedError();
   @override
   String get termsOfUseUrl => throw UnimplementedError();
+  @override
+  String get contactTwitterAccount => '@yamatatsu109_ja';
 }
 
 class EnvConfigPROD implements EnvConfig {
@@ -57,4 +67,6 @@ class EnvConfigPROD implements EnvConfig {
   String get storeUrl => throw UnimplementedError();
   @override
   String get termsOfUseUrl => throw UnimplementedError();
+  @override
+  String get contactTwitterAccount => '@yamatatsu109_ja';
 }
