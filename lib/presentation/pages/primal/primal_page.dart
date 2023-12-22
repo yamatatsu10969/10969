@@ -10,7 +10,7 @@ import '../../widgets/tap_to_unfocus_view.dart';
 import 'web_view_navigation_controls.dart';
 
 class PrimalPage extends ConsumerWidget {
-  const PrimalPage({Key? key}) : super(key: key);
+  const PrimalPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -122,10 +122,9 @@ class AppWebView extends HookConsumerWidget {
       [],
     );
 
-    return WillPopScope(
-      onWillPop: () async {
+    return PopScope(
+      onPopInvoked: (didPop) {
         onWillPop?.call();
-        return true;
       },
       child: Scaffold(
         appBar: AppBar(

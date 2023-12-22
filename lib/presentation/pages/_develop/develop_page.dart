@@ -5,7 +5,7 @@ import '../../widgets/tap_to_unfocus_view.dart';
 import '../primal/primal_page.dart';
 
 class DevelopPage extends StatelessWidget {
-  DevelopPage({Key? key}) : super(key: key);
+  DevelopPage({super.key});
 
   final pairs = <Pair<String, Widget>>[
     const Pair('Primal', PrimalPage()),

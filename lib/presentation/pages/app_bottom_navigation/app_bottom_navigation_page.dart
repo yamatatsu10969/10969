@@ -61,7 +61,7 @@ class BottomTab {
 }
 
 class AppBottomNavigationPage extends HookConsumerWidget {
-  const AppBottomNavigationPage({Key? key}) : super(key: key);
+  const AppBottomNavigationPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

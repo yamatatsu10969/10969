@@ -10,7 +10,7 @@ InputDecoration textFormFieldDecoration(
 }) {
   return InputDecoration(
     hintText: hintText,
-    hintStyle: context.textTheme.subtitle2?.copyWith(color: AppColor.border),
+    hintStyle: context.textTheme.titleSmall?.copyWith(color: AppColor.border),
     suffixIcon: suffixIcon,
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(4),

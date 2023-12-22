@@ -8,7 +8,7 @@ import '../../styles/design_size.dart';
 import '../../widgets/tap_to_unfocus_view.dart';
 
 class AccountsPage extends HookConsumerWidget {
-  const AccountsPage({Key? key}) : super(key: key);
+  const AccountsPage({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return TapToUnfocusView(
@@ -25,10 +25,10 @@ class AccountsPage extends HookConsumerWidget {
                     aspectRatio: 1,
                     child: Assets.logos.oneokrockIcon.image(),
                   ),
-                  Wrap(
+                  const Wrap(
                     crossAxisAlignment: WrapCrossAlignment.center,
                     runAlignment: WrapAlignment.center,
-                    children: const [
+                    children: [
                       SNSButton(
                         sns: SNS.instagram,
                         urlPath: 'oneokrockofficial/',
@@ -90,16 +90,16 @@ class AccountsPage extends HookConsumerWidget {
                     aspectRatio: 1,
                     child: Assets.profiles.tomoya.image(),
                   ),
-                  Wrap(
-                    children: const [
+                  const Wrap(
+                    children: [
                       SNSButton(sns: SNS.instagram, urlPath: 'tomo_10969/'),
                       SNSButton(
                         sns: SNS.youtube,
                         urlPath: 'channel/UCWnAmpRn-ahaCt7kmsPSGRw',
-                      )
+                      ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),
@@ -110,7 +110,6 @@ class AccountsPage extends HookConsumerWidget {
 
   Widget rowItem(Widget left, Widget right) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Expanded(child: Center(child: left)),

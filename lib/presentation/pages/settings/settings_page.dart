@@ -74,7 +74,7 @@ class SettingsPage extends ConsumerWidget {
                                     'https://github.com/yamatatsu10969',
                                   ),
                                   icon: SNS.github.icon,
-                                )
+                                ),
                               ],
                             ),
                           ],
