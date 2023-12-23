@@ -46,7 +46,7 @@ jobs:
       - name: Analyze
         run: flutter analyze --no-fatal-infos > flutter_analyze_report.txt # info レベルで落ちないようにする
       - name: Format Analyze
-        run: flutter format --dry-run --set-exit-if-changed .
+        run: dart format --dry-run --set-exit-if-changed .
       - name: Setup ruby
         uses: ruby/setup-ruby@v1
         with:
