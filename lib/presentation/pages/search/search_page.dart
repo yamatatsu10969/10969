@@ -11,7 +11,7 @@ import '../accounts/accounts_page.dart';
 import 'search_controller.dart';
 
 class SearchPage extends HookConsumerWidget {
-  const SearchPage({Key? key}) : super(key: key);
+  const SearchPage({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final textController = useTextEditingController();
@@ -35,7 +35,7 @@ class SearchPage extends HookConsumerWidget {
                 ),
                 SearchHistorySection(
                   textController: textController,
-                )
+                ),
               ],
             ),
           ),
@@ -47,9 +47,9 @@ class SearchPage extends HookConsumerWidget {
 
 class SearchBarSection extends HookConsumerWidget {
   const SearchBarSection({
-    Key? key,
+    super.key,
     required this.textController,
-  }) : super(key: key);
+  });
 
   final TextEditingController textController;
 
@@ -84,7 +84,6 @@ class SearchBarSection extends HookConsumerWidget {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SNSSearchButton(
               sns: SNS.twitter,
@@ -110,8 +109,7 @@ class SearchBarSection extends HookConsumerWidget {
 }
 
 class SearchHistorySection extends ConsumerWidget {
-  const SearchHistorySection({Key? key, required this.textController})
-      : super(key: key);
+  const SearchHistorySection({super.key, required this.textController});
 
   final TextEditingController textController;
 
@@ -175,10 +173,10 @@ class SearchHistorySection extends ConsumerWidget {
 
 class SNSSearchButton extends HookConsumerWidget {
   const SNSSearchButton({
-    Key? key,
+    super.key,
     required this.sns,
     required this.query,
-  }) : super(key: key);
+  });
   final SNS sns;
   final String query;
   @override

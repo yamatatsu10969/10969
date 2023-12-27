@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../widgets/tap_to_unfocus_view.dart';
 
 class SplashPage extends StatelessWidget {
-  const SplashPage({Key? key}) : super(key: key);
+  const SplashPage({super.key});
 
   @override
   Widget build(BuildContext context) {

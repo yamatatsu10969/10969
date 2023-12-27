@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TapToUnfocusView extends StatelessWidget {
-  const TapToUnfocusView({Key? key, required this.child}) : super(key: key);
+  const TapToUnfocusView({super.key, required this.child});
 
   final Widget? child;
 

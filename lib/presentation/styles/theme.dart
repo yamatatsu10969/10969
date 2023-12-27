@@ -31,9 +31,7 @@ class AppTheme {
         systemOverlayStyle: SystemUiOverlayStyle.light, // 2
       ),
       inputDecorationTheme: const InputDecorationTheme(
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(width: 1, color: Colors.black),
-        ),
+        focusedBorder: OutlineInputBorder(),
       ),
       textSelectionTheme: const TextSelectionThemeData(
         cursorColor: Colors.black,
@@ -50,7 +48,6 @@ class AppTheme {
         displayColor: Colors.white,
         bodyColor: Colors.white,
       ),
-      backgroundColor: Colors.black,
       scaffoldBackgroundColor: Colors.black,
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: Colors.black,
@@ -58,11 +55,24 @@ class AppTheme {
       ),
       inputDecorationTheme: const InputDecorationTheme(
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(width: 1, color: Colors.white),
+          borderSide: BorderSide(color: Colors.white),
         ),
       ),
       textSelectionTheme: const TextSelectionThemeData(
         cursorColor: Colors.white,
+      ),
+      colorScheme: const ColorScheme(
+        brightness: Brightness.dark,
+        primary: Colors.black,
+        onPrimary: Colors.white,
+        secondary: Colors.white,
+        onSecondary: Colors.black,
+        error: Colors.red,
+        onError: Colors.white,
+        background: Colors.black,
+        onBackground: Colors.white,
+        surface: Colors.black,
+        onSurface: Colors.white,
       ),
     );
   }

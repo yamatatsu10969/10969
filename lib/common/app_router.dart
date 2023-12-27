@@ -26,19 +26,14 @@ class AppRouter {
       case develop:
         fullscreenDialog = true;
         page = DevelopPage();
-        break;
       case primalFootmark:
         page = const PrimalPage();
-        break;
       case settings:
         page = const SettingsPage();
-        break;
       case splash:
         page = const SplashPage();
-        break;
       case appBottomNavigation:
         page = const AppBottomNavigationPage();
-        break;
 
       /// 一番最初のビルドの時に呼ばれる。splash画面でバックボタンを押したときに、
       /// エラー画面に戻れてしまうため、null を入れて戻れないようにしている
